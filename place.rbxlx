@@ -3,7 +3,7 @@
 		<Item class="Part">
 			<Properties>
 				<bool name="Anchored">true</bool>
-				<string name="Name">Baseplate</string>
+				<string name="Name">hi</string>
 				<Vector3 name="size">
 					<X>1000</X>
 					<Y>20</Y>
