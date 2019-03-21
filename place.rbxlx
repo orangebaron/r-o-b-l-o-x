@@ -3,12 +3,22 @@
 		<Item class="Part">
 			<Properties>
 				<bool name="Anchored">true</bool>
-				<string name="Name">hi</string>
+				<string name="Name">Baseplate</string>
 				<Vector3 name="size">
 					<X>1000</X>
 					<Y>20</Y>
 					<Z>1000</Z>
 				</Vector3>
+			</Properties>
+		</Item>
+	</Item>
+	<Item class="ServerScriptService">
+		<Item class="Script">
+			<Properties>
+				<string name="Name">uwe</string>
+				<ProtectedString name="Source"><![CDATA[
+					print("hello world")
+				]]></ProtectedString>
 			</Properties>
 		</Item>
 	</Item>
