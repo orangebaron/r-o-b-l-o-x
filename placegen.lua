@@ -22,12 +22,13 @@ function readLua(filename)
 end
 function replaceRequires(source)
 	local modified = source
-	local searchFor = "require(\""
-	local loc = 0
+	local searchFor = "require%(\""
+	local replaceWith = "require(game.ServerScriptService."
 	while true do
-		--TODO
-		loc += 1
-		if loc >= string.len(modified) - string.len(searchFor) then break end
+		local start, finish = string.find(modified, searchFor)
+		if not start then break end
+
+		modified = string.sub(modified, 0, start-1)..replaceWith..string.gsub(string.sub(modified, finish+1), "\"%)", ")", 1)
 	end
 	return modified
 end
