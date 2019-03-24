@@ -1,0 +1,8 @@
+<Item class="Script">
+	<Properties>
+		<string name="Name"><!-- name --></string>
+		<ProtectedString name="Source"><![CDATA[
+			<!-- content -->
+		]]></ProtectedString>
+	</Properties>
+</Item>
