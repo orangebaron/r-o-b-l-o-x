@@ -59,6 +59,7 @@ for f in lfs.dir("luaSrc") do
 		)
 	end
 end
+serverScriptService = replaceComments(service, {"class", "content"}, {"ServerScriptService", serverScriptService})
 table.insert(toReplace, "ServerScriptService")
 table.insert(replacements, serverScriptService)
 
