@@ -23,19 +23,30 @@ end
 function replaceRequires(source)
 	local modified = source
 	local searchFor = "require%(\""
-	local replaceWith = "require(game.ServerScriptService."
+	local replaceWith1 = "local "
+	local replaceWith2 = " = require(game.ServerScriptService."
 	while true do
 		local start, finish = string.find(modified, searchFor)
 		if not start then break end
 
-		modified = string.sub(modified, 0, start-1)..replaceWith..string.gsub(string.sub(modified, finish+1), "\"%)", ")", 1)
+		local afterwards = string.sub(modified, finish+1)
+		local endOfLine, _ = string.find(afterwards, "\"%)")
+		local scriptName = string.sub(afterwards, 0, endOfLine - 1)
+		local restOfScript = string.sub(afterwards, endOfLine + 1)
+		modified =
+			string.sub(modified, 0, start-1) ..
+			replaceWith1 ..
+			scriptName ..
+			replaceWith2 ..
+			scriptName ..
+			restOfScript
 	end
 	return modified
 end
 
 local game = readXml("game")
 local service = readXml("service")
-local script = readXml("script")
+local moduleScript = readXml("moduleScript")
 
 local toReplace = {"Lighting", "ReplicatedStorage", "ServerStorage", "StarterPlayer"}
 local replacements = {}
@@ -47,13 +58,13 @@ for _, r in pairs(toReplace) do
 	))
 end
 
-local serverScriptService = ""
+local serverScriptService = readXml("mainScript")
 for f in lfs.dir("luaSrc") do
 	if f ~= "." and f ~= ".." then
 		local strippedFilename = string.sub(f,0,-5)
-		local content = replaceRequires(read("luaSrc/"..f))
-		serverScriptService = serverScriptService..replaceComments(
-			script,
+		local content = replaceRequires(read("luaSrc/" .. f))
+		serverScriptService = serverScriptService .. replaceComments(
+			moduleScript,
 			{"name", "content"},
 			{strippedFilename, content}
 		)
