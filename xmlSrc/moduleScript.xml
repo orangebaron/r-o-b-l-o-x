@@ -1,8 +1,6 @@
 <Item class="ModuleScript">
 	<Properties>
 		<string name="Name"><!-- name --></string>
-		<ProtectedString name="Source">
-			<![CDATA[<!-- content -->]]>
-		</ProtectedString>
+		<ProtectedString name="Source"><![CDATA[<!-- content -->]]></ProtectedString>
 	</Properties>
 </Item>

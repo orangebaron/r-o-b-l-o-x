@@ -1,10 +1,8 @@
 <Item class="Script">
 	<Properties>
 		<string name="Name">main</string>
-		<ProtectedString name="Source">
-			<![CDATA[
+		<ProtectedString name="Source"><![CDATA[
 require(game.ServerScriptService.mainFunction)()
-			]]>
-		</ProtectedString>
+		]]></ProtectedString>
 	</Properties>
 </Item>
