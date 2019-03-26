@@ -1,1 +1,1 @@
-return function(w) print("winner is "..w.Name) end
+return function(w) print("winner is " .. tostring(w)) end

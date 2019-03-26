@@ -1,7 +1,7 @@
 require("mainLoop")
 
 return function()
-	while true do
+	while wait() do
 		mainLoop()
 	end
 end
