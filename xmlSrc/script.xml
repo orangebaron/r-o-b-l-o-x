@@ -1,4 +1,4 @@
-<Item class="Script">
+<Item class="ModuleScript">
 	<Properties>
 		<string name="Name"><!-- name --></string>
 		<ProtectedString name="Source"><![CDATA[
