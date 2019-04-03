@@ -1,7 +1,7 @@
 require("getLivingPlayers")
 
-function countdown(time, repeatedFunction)
-	if time == 0 then
+function countdown(timeRemaining, repeatedFunction)
+	if timeRemaining == 0 then
 		return nil
 	end
 
@@ -12,11 +12,11 @@ function countdown(time, repeatedFunction)
 		return livingPlayers[1]
 	end
 
-	print(time) --TODO: display this on users' screens
-	repeatedFunction(time)
+	print(timeRemaining) --TODO: display this on users' screens
+	repeatedFunction(timeRemaining)
 
 	wait(1)
-	return countdown(time - 1, repeatedFunction)
+	return countdown(timeRemaining - 1, repeatedFunction)
 end
 
 return countdown

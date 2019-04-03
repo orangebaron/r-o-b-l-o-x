@@ -1,7 +1,7 @@
 require("getLivingPlayers")
 
 return function()
-	for _, plr in getLivingPlayers() do
+	for _, plr in pairs(getLivingPlayers()) do
 		plr.LoadCharacter()
 	end
 end
