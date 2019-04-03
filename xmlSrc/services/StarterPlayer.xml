@@ -1,0 +1,8 @@
+<Item class="StarterPlayerScripts">
+	<Item Class="LocalScript">
+		<Properties>
+			<string name="Name">disableHealthBar</string>
+			<ProtectedString name="Source"><![CDATA[game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Health, false)]]></ProtectedString>
+		</Properties>
+	</Item>
+</Item>
