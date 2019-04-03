@@ -43,13 +43,41 @@ function replaceRequires(source)
 	end
 	return modified
 end
+function genServerScriptService()
+	local serverScriptService = readXml("mainScript")
+	for f in lfs.dir("luaSrc") do
+		if f ~= "." and f ~= ".." then
+			local strippedFilename = string.sub(f,0,-5)
+			local content = replaceRequires(read("luaSrc/" .. f))
+			serverScriptService = serverScriptService .. replaceComments(
+				moduleScript,
+				{"name", "content"},
+				{strippedFilename, content}
+			)
+		end
+	end
+	return serverScriptService
+end
+serverScriptService = replaceComments(service, {"class", "content"}, {"ServerScriptService", serverScriptService})
+
+end
+function genServices()
+	local services = ""
+	for f in lfs.dir("xmlSrc/services") do
+		services = services .. replaceComments(
+			moduleScript,
+			{"name", "content"},
+			{strippedFilename, content}
+		)
+	end
+	return services .. genServerScriptService()
+end
 
 local game = readXml("game")
 local service = readXml("service")
 local moduleScript = readXml("moduleScript")
 
-local toReplace = {"Lighting", "ReplicatedStorage", "ServerStorage", "StarterPlayer"}
-local replacements = {}
+local services = ""
 for _, r in pairs(toReplace) do
 	table.insert(replacements, replaceComments(
 		service,
@@ -58,19 +86,6 @@ for _, r in pairs(toReplace) do
 	))
 end
 
-local serverScriptService = readXml("mainScript")
-for f in lfs.dir("luaSrc") do
-	if f ~= "." and f ~= ".." then
-		local strippedFilename = string.sub(f,0,-5)
-		local content = replaceRequires(read("luaSrc/" .. f))
-		serverScriptService = serverScriptService .. replaceComments(
-			moduleScript,
-			{"name", "content"},
-			{strippedFilename, content}
-		)
-	end
-end
-serverScriptService = replaceComments(service, {"class", "content"}, {"ServerScriptService", serverScriptService})
 table.insert(toReplace, "ServerScriptService")
 table.insert(replacements, serverScriptService)
 
