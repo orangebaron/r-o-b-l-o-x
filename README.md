@@ -6,6 +6,8 @@
 - raycasting stuff
 - health
 - hide healthbar
-- leaderboard sign
+- buyable items
 - make lobby
+- make shops
+- leaderboard sign
 - make skins/guns
