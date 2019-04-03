@@ -1,3 +1,4 @@
+require("getEligiblePlayers")
 require("setupMap")
 require("setupPlayers")
 require("countdown")
@@ -7,6 +8,9 @@ require("cleanupMap")
 require("cleanupPlayers")
 
 return function()
+	if #getEligiblePlayers() < 3 then
+		return
+	end
 	setupMap()
 	setupPlayers()
 	local winner =

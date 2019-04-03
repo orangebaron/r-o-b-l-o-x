@@ -1,1 +1,5 @@
-return function() print("setupMap") end
+require("genMap")
+
+return function()
+	genMap().Parent = Workspace
+end

@@ -1,15 +1,15 @@
-require("getEligiblePlayers")
+require("getLivingPlayers")
 
 function countdown(time, repeatedFunction)
 	if time == 0 then
 		return nil
 	end
 
-	local eligiblePlayers = getEligiblePlayers()
-	if #eligiblePlayers == 0 then
+	local livingPlayers = getLivingPlayers()
+	if #livingPlayers == 0 then
 		return nil
-	elseif #eligiblePlayers == 1 then
-		return eligiblePlayers[1]
+	elseif #livingPlayers == 1 then
+		return livingPlayers[1]
 	end
 
 	print(time) --TODO: display this on users' screens

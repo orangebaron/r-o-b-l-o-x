@@ -1,1 +1,3 @@
-return function() print("cleanupMap") end
+return function()
+	Workspace.Map:Destroy()
+end
