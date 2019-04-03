@@ -5,7 +5,7 @@
 - data storage
 - raycasting stuff
 - health
-- hide healthbar
+- hide healthbar ✓
 - buyable items
 - make lobby
 - make shops
