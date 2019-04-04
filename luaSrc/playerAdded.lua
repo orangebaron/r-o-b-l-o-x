@@ -1,3 +1,3 @@
 return function(plr)
-	print(plr, "joined")
+	Instance.new("IntValue", plr).Name = "Kills"
 end

@@ -2,7 +2,7 @@
 ## TODO:
 - place gen script ✓
 - main loop things ✓
-- data storage
+- data storage ✓
 - raycasting stuff
 - health
 - hide healthbar ✓
