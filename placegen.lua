@@ -48,7 +48,7 @@ local service = readXml("service")
 local moduleScript = readXml("moduleScript")
 
 function genServerScriptService()
-	local serverScriptService = readXml("mainScript") .. replaceComments(moduleScript, {"name", "content"}, {"LICENSE", read("LICENSE")})
+	local serverScriptService = readXml("mainScript") .. replaceComments(moduleScript, {"name", "content"}, {"LICENSE", "--[[\n" .. read("LICENSE") .. "\n]]"})
 	for f in lfs.dir("luaSrc") do
 		if f ~= "." and f ~= ".." then
 			local strippedFilename = string.sub(f,0,-5)
